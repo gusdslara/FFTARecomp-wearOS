@@ -1,0 +1,6 @@
+[submodule "WearOS/externals/mgba"]
+	path = WearOS/externals/mgba
+	url = https://github.com/mgba-emu/mgba.git
+[submodule "WearOS/externals/SDL"]
+	path = WearOS/externals/SDL
+	url = https://github.com/libsdl-org/SDL.git

@@ -1,3 +1,33 @@
+# Final Fantasy Tactics Advance — Wear OS Port
+
+<p align="center">
+  <img src="WearOS/watch_ffta_controls_demo.png" alt="Final Fantasy Tactics Advance on Wear OS - undistorted round layout and buttons in the free space" width="800">
+</p>
+
+Fork of **[FFTARecomp](https://github.com/Jorge262007/FFTARecomp)** that adds a **Wear OS smartwatch** build of *Final Fantasy Tactics Advance* for round displays (Samsung Galaxy Watch 4/5/6/7/Ultra, Google Pixel Watch 1/2/3, Xiaomi Watch 2, etc.). Everything Wear OS lives in **[`WearOS/`](WearOS)**; the rest of the tree is upstream FFTARecomp, unchanged.
+
+---
+
+## ⌚ Wear OS Highlights
+
+- **🖼️ Undistorted Round Layout**: The full 240×160 frame drawn as the largest 3:2 picture that fits the round glass: nothing cropped, bent or stretched.
+- **🔍 Three Screen Presets**: Tap **`M`** to cycle **Whole screen**, **Zoom** (1.15×) and **Strong zoom** (1.30×), remembered between sessions.
+- **🎮 Buttons in the Free Space**: `L` / `M` / `R` on the top cap, `B` / `>>` / `A` on the bottom cap, `SELECT` / `START` on the side crescents. No button ever covers a game pixel.
+- **👆 Tap & Drag Gestures**: Drag anywhere for the D-pad, quick tap = `A`, two-finger tap = `B`, hold `M` for diagonal drag on isometric battle maps, `>>` for 3× speed.
+- **⌚ Rotary Crown / Bezel Cursor**: One crown click = one step in menus, lists and abilities.
+- **💾 Auto Resume**: State is saved when the app leaves the screen and restored on the next launch.
+- **📲 Wi-Fi ROM Transfer (QR Code)**: The watch shows a QR code; scan it with your phone and send your own `.gba` over Wi-Fi.
+
+### 🛠️ Building for Wear OS
+```bash
+git clone --recurse-submodules https://github.com/gusdslara/FFTARecomp-wearOS.git
+cd FFTARecomp-wearOS/WearOS/android
+./gradlew :wear:assembleDebug
+```
+Output APK: `WearOS/android/wear/build/outputs/apk/debug/wear-debug.apk`. Full guide, controls and desktop build: **[WearOS/README.md](WearOS/README.md)**.
+
+---
+
 <p align="center">
   <img src="Image/logo.png" alt="FFTARecomp logo" width="50%">
 </p>
