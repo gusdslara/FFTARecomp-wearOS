@@ -1,30 +1,31 @@
-# Final Fantasy Tactics Advance — Wear OS Port
+# FFTARecomp — Wear OS Port
 
 <p align="center">
-  <img src="WearOS/watch_ffta_controls_demo.png" alt="Final Fantasy Tactics Advance on Wear OS - undistorted round layout and buttons in the free space" width="800">
+  <img src="AndroidPort/android/wear/watch_fftarecomp_demo.png" alt="FFTARecomp on Wear OS - recompiled game in an undistorted round layout with buttons in the free space" width="800">
 </p>
 
-Fork of **[FFTARecomp](https://github.com/Jorge262007/FFTARecomp)** that adds a **Wear OS smartwatch** build of *Final Fantasy Tactics Advance* for round displays (Samsung Galaxy Watch 4/5/6/7/Ultra, Google Pixel Watch 1/2/3, Xiaomi Watch 2, etc.). Everything Wear OS lives in **[`WearOS/`](WearOS)**; the rest of the tree is upstream FFTARecomp, unchanged.
+Fork of **[FFTARecomp](https://github.com/Jorge262007/FFTARecomp)** that brings the recompiled *Final Fantasy Tactics Advance* to **Wear OS smartwatches** with round displays. There is **no emulator**: the watch recompiles your ROM to native ARM64 code with the same Rust core and on-device TinyCC compiler as the Android port. The watch build is the **[`AndroidPort/android/wear`](AndroidPort/android/wear)** module; the rest of the tree is upstream FFTARecomp.
 
 ---
 
 ## ⌚ Wear OS Highlights
 
+- **⚙️ Native Recompilation on the Watch**: First launch recompiles the ROM to ARM64 on the watch; the compiled cache makes later launches go straight to the game.
 - **🖼️ Undistorted Round Layout**: The full 240×160 frame drawn as the largest 3:2 picture that fits the round glass: nothing cropped, bent or stretched.
 - **🔍 Three Screen Presets**: Tap **`M`** to cycle **Whole screen**, **Zoom** (1.15×) and **Strong zoom** (1.30×), remembered between sessions.
-- **🎮 Buttons in the Free Space**: `L` / `M` / `R` on the top cap, `B` / `>>` / `A` on the bottom cap, `SELECT` / `START` on the side crescents. No button ever covers a game pixel.
+- **🎮 Buttons in the Free Space**: `L` / `M` / `R` on the top cap, `B` / `>>` / `A` on the bottom cap, `SELECT` / `START` on the side crescents. No button covers a game pixel.
 - **👆 Tap & Drag Gestures**: Drag anywhere for the D-pad, quick tap = `A`, two-finger tap = `B`, hold `M` for diagonal drag on isometric battle maps, `>>` for 3× speed.
 - **⌚ Rotary Crown / Bezel Cursor**: One crown click = one step in menus, lists and abilities.
-- **💾 Auto Resume**: State is saved when the app leaves the screen and restored on the next launch.
-- **📲 Wi-Fi ROM Transfer (QR Code)**: The watch shows a QR code; scan it with your phone and send your own `.gba` over Wi-Fi.
+- **📲 Wi-Fi ROM Transfer (QR Code)**: The watch shows a QR code; scan it with your phone and send your own `.gba` (USA or Europe) over Wi-Fi.
+- **📋 Requires a 64-bit Wear OS watch** (arm64-v8a, for example Galaxy Watch 7 / Ultra / 8 or Pixel Watch 3).
 
 ### 🛠️ Building for Wear OS
 ```bash
-git clone --recurse-submodules https://github.com/gusdslara/FFTARecomp-wearOS.git
-cd FFTARecomp-wearOS/WearOS/android
-./gradlew :wear:assembleDebug
+cd AndroidPort
+python scripts/build_android.py --sdk <ANDROID_SDK> --wear
+adb install -r APK/FFTARecomp-wearos-arm64-preview.apk
 ```
-Output APK: `WearOS/android/wear/build/outputs/apk/debug/wear-debug.apk`. Full guide, controls and desktop build: **[WearOS/README.md](WearOS/README.md)**.
+Full guide, controls and requirements: **[AndroidPort/android/wear/README.md](AndroidPort/android/wear/README.md)**.
 
 ---
 
